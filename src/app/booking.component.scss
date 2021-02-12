@@ -1,0 +1,19 @@
+@import "../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+.example-card {
+  max-width: 200px;
+  margin-left: 10px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.courses {
+  display: flex;
+}
+
+mat-form-field{
+  margin-left: 10px;
+}

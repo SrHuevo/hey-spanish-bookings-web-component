@@ -1,0 +1,80 @@
+<form [formGroup]="bookingFormGroup">
+  <ng-template matStepLabel>Fill your data</ng-template>
+  <mat-form-field>
+    <mat-label>First name</mat-label>
+    <input matInput placeholder="First name" formControlName="name" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last name</mat-label>
+    <input matInput placeholder="Last name" formControlName="surname" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput placeholder="Phone" formControlName="phone" required>
+  </mat-form-field>
+  <br>
+  <mat-slide-toggle>
+    Do you like a test class?
+  </mat-slide-toggle>
+  <br>
+  <ng-container formArrayName="students">
+    <ng-container *ngFor="let student of studentsFormArray.controls; let i = index">
+      <ng-container [formGroup]="student">
+        <mat-form-field>
+          <mat-label>Student's name</mat-label>
+          <input matInput placeholder="Name" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Student's birthday</mat-label>
+          <input matInput placeholder="Age" formControlName="age" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Student's level</mat-label>
+          <input matInput placeholder="level" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Student's day of class</mat-label>
+          <input matInput placeholder="day" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Student's hour of class</mat-label>
+          <input matInput placeholder="day" required>
+        </mat-form-field>
+        <button *ngIf="i !== 0" (click)="removeStudent(i)">remove</button>
+      </ng-container>
+      <br>
+    </ng-container>
+  </ng-container>
+  <button (click)="addStudent()">add</button>
+  <br>
+  <mat-slide-toggle formControlName="permissionPostMediaPhotos">Do you give us your permission to post pictures from the
+    lessons on social media?
+  </mat-slide-toggle>
+  <br>
+  <mat-form-field>
+    <mat-label>How did you hear about us?</mat-label>
+    <mat-select>
+      <mat-option value="Facebook">Facebook</mat-option>
+      <mat-option value="Instagram">Instagram</mat-option>
+      <mat-option value="Google">Google</mat-option>
+      <mat-option value="Recommendation">Recommendation</mat-option>
+      <mat-option value="Other">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Add coupon</mat-label>
+    <input matInput placeholder="Coupon" formControlName="coupon" required>
+  </mat-form-field>
+  <br>
+  <div>
+    <button mat-button>Back</button>
+    <button mat-button>Pay with credit card</button>
+    <button mat-button>Pay with paypal</button>
+  </div>
+</form>
